@@ -79,6 +79,7 @@ const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
           </VictoryChart>
         </ChartCard>
       </Grid>
+      
     </Grid>
   );
 };

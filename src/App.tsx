@@ -165,6 +165,43 @@ function App(props: any) {
     true
   );
 
+
+  
+    
+  const addNetwork = async () => {
+    try{
+      await window.ethereum.request({
+        method: 'wallet_addEthereumChain',
+        params: [
+          {
+            // 33333
+            chainId: '0x8235',
+            chainName: "Aves",
+            rpcUrls: ["https://rpc.avescoin.io/"],
+            blockExplorerUrls: ["https://avescan.io/"],
+            nativeCurrency: {
+              name: "AVES",
+              symbol: "AVS", // 2-6 characters long
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      // refresh
+      window.location.reload();
+    }
+    catch {
+      alert("Done")
+    }
+    finally {
+      alert("Done")
+
+    }
+    
+
+
+
+  };
   const isAddress = (q: string): boolean => {
     const re = new RegExp(ETHJSONSpec.components.schemas.Address.pattern);
     return re.test(q);
@@ -266,13 +303,23 @@ function App(props: any) {
                         alt="expedition-logo"
                         height="30"
                         style={{ marginRight: "10px" }}
-                        src={expeditionLogo}
+                        src={"https://cdn.discordapp.com/attachments/1014981973263011853/1036978915807338516/aves-logo.png"}
                       />
                     </Grid>
                     <Grid>
                       <Typography color="textSecondary" variant="h6">
-                        {t("Expedition")}
+                        {t("Aves network ")}
                       </Typography>
+                      <button onClick={addNetwork}
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          color: "red",
+                          padding: "0px",
+                          textDecoration: "underline",
+                          cursor: "pointer",
+                        }}
+                      > Add Network </button>
                     </Grid>
                   </Grid>
                 </Link>
@@ -321,24 +368,7 @@ function App(props: any) {
                     {!query.rpcUrl && <CircularProgress />}
                   </>
                 )}
-                <Tooltip title={t("Add custom chain") as string}>
-                  <IconButton onClick={openAddChainModal}>
-                    <PlaylistAddIcon />
-                  </IconButton>
-                </Tooltip>
                 <LanguageMenu />
-                <Tooltip title={t("JSON-RPC API Documentation") as string}>
-                  <IconButton
-                    onClick={
-                      () =>
-                        window.open(
-                          "https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/etclabscore/ethereum-json-rpc-specification/master/openrpc.json"
-                        ) //tslint:disable-line
-                    }
-                  >
-                    <NotesIcon />
-                  </IconButton>
-                </Tooltip>
                 <Tooltip title={t("Expedition Github") as string}>
                   <IconButton
                     onClick={() =>

@@ -1,36 +1,18 @@
-# Expedition
+# Explorer
 
 <!-- project logo w/ quick links -->
-<p align="center">
-  <img src="https://github.com/etclabscore/jade-media-assets/blob/master/j-explorer/j-explorer(PNG)/128x128.png?raw=true" />
-</p>
+
 <center>
-  <h3 align="center">Expedition</h3>
+  <h3 align="center">Explorer</h3>
 
   <p align="center">
-    A block explorer for the Ethereum Stack.
-    <br />
-    <a href="https://expedition.dev">View Demo</a>
-    ·
-    <a href="https://github.com/etclabscore/expedition/issues/new?assignees=&labels=&template=bug_report.md&title=">Report Bug</a>
-    ·
-    <a href="https://github.com/etclabscore/expedition/issues/new?assignees=&labels=&template=feature_request.md&title=">Request Feature</a>
+    A block explorer for the Aves Network.
   </p>
 </center>
 
 ![expedition_gif](https://user-images.githubusercontent.com/364566/94349388-d17fb000-fff8-11ea-92ae-71c002474a65.gif)
 
 <!-- table of contents -->
-## Table of Contents
-  - [About The Project](#about-the-project)
-  - [Getting Started](#getting-started)
-      - [Prerequisites](#prerequisites)
-      - [Installation](#installation)
-- [Usage](#usage)
-  - [Start explorer](#start-the-explorer)
-  - [Configurations](#configurations)
-- [Contributing](#contributing)
-- [Resources](#resources)
 
 <!-- about the project -->
 ## About The Project

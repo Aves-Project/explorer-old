@@ -35,7 +35,7 @@ export default (props: any) => {
   const [gasPrice, setGasPrice] = useState<string>();
   const [syncing, setSyncing] = useState<ISyncing>();
   const [peerCount, setPeerCount] = useState<string>();
-
+  const [ecoFund, setEcoFund] = useState<string>();
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -51,6 +51,12 @@ export default (props: any) => {
     erpc.eth_getBlockByNumber(`0x${blockNumber.toString(16)}`, true).then((b) => {
       if (b === null) { return; }
       setBlock(b);
+      // SET echo fund
+      erpc.eth_getBalance("0xEfED0A3e602a67a756d5f92A3BA7dEe976106309", `0x${blockNumber.toString(16)}`).then((b) => {
+        if (b === null) { return; }
+        // from hex
+        setEcoFund((hexToNumber(b) / 1000000000000000000).toString());
+      });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blockNumber]);
@@ -85,6 +91,7 @@ export default (props: any) => {
   if (blocks === undefined || chainId === undefined || gasPrice === undefined || peerCount === undefined) {
     return <CircularProgress />;
   }
+  // set ecoFund
 
   return (
     <div>
@@ -95,9 +102,13 @@ export default (props: any) => {
               <Typography variant="h4">{blockNumber}</Typography>
             </ChartCard>
           </Grid>
-          <Grid key="chainId" item>
-            <ChartCard title={t("Chain ID")}>
-              <Typography variant="h4">{hexToNumber(chainId)}</Typography>
+          <Grid key="eco" item>
+            <ChartCard title={t("ECO fund")}>
+              <Typography variant="h6">
+                <a href="/address/0xEfED0A3e602a67a756d5f92A3BA7dEe976106309" style={{ color: "inherit" }}>
+                {ecoFund}</a> AVS
+              </Typography>
+              <Typography variant="h4"><small><small><small>5% of block reward is used for funding ECO projects</small></small></small></Typography>
             </ChartCard>
           </Grid>
           {syncing &&
