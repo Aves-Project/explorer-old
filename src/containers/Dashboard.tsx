@@ -104,9 +104,9 @@ export default (props: any) => {
           </Grid>
           <Grid key="eco" item>
             <ChartCard title={t("ECO fund")}>
+              <a href="/address/0xEfED0A3e602a67a756d5f92A3BA7dEe976106309" style={{ color: "inherit" }}>fund address</a>
               <Typography variant="h6">
-                <a href="/address/0xEfED0A3e602a67a756d5f92A3BA7dEe976106309" style={{ color: "inherit" }}>
-                {ecoFund}</a> AVS
+                {ecoFund} AVS
               </Typography>
               <Typography variant="h4"><small><small><small>5% of block reward is used for funding ECO projects</small></small></small></Typography>
             </ChartCard>

@@ -83,7 +83,6 @@ function BlockList({ blocks }: any) {
                       )}>
                       {authorHashShort}
                     </Link>
-                    &nbsp;<sup>{hexToString(b.extraData).substring(0, 20)}</sup>
                   </Typography>
                 </TableCell>
                 <TableCell component="th" scope="row">
